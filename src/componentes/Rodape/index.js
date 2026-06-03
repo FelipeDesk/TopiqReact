@@ -9,17 +9,17 @@ const Rodape = () => {
             <section>
                 <ul>
                     <li>
-                        <a href="https://www.linkedin.com" target="_blank">
+                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
                             <FaLinkedin color='#FFF' size={40}/>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.x.com" target="_blank">
+                        <a href="https://www.x.com" target="_blank" rel="noreferrer">
                             <FaSquareXTwitter color='#FFF' size={40}/>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
                             <FaInstagram color='#FFF' size={40}/>
                         </a>
                     </li>
