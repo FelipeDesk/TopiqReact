@@ -1,17 +1,17 @@
-import './Colaborador.css'
+import './Card.css'
 
-const Colaborador = ({nome, imagem, cargo, corPrimaria}) => {
+const Card = ({nome, descricao, imagem, corPrimaria}) => {
     return (
-        <div className='colaborador'>
+        <div className='card'>
             <div className='cabecalho' style={{backgroundColor: corPrimaria}}>
                 <img src={imagem} alt=''/>
             </div>
             <div className='rodape'>
                 <h4>{nome}</h4>
-                <h5>{cargo}</h5>
+                <h5>{descricao}</h5>
             </div>
         </div>
     )
 }
 
-export default Colaborador
+export default Card
