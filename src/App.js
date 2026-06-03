@@ -2,67 +2,67 @@ import { useState } from 'react';
 import Banner from './componentes/Banner/Banner';
 import CampoTexto from './componentes/CampoTexto';
 import Formulario from './componentes/Formulario';
-import Time from './componentes/Time';
+import Assunto from './componentes/Assunto';
 import Rodape from './componentes/Rodape';
 
 function App() {
 
-  const times = [
+  const assuntos = [
       {
-        nome: 'Programação',
+        nome: 'Filme',
         corPrimaria: '#57C278',
         corSecundaria: '#D9F7E9'
       },
       {
-        nome: 'Front-End',
+        nome: 'Série',
         corPrimaria: '#82CFFA',
         corSecundaria: '#E8F8FF'
       },
       {
-        nome: 'Data Science',
+        nome: 'Música',
         corPrimaria: '#A6D157',
         corSecundaria: '#F0F8E2'
       },
       {
-        nome: 'Devops',
+        nome: 'Livro',
         corPrimaria: '#E06B69',
         corSecundaria: '#FDE7E8'
       },
       {
-        nome: 'Desing',
+        nome: 'Jogo',
         corPrimaria: '#DB6EBF',
         corSecundaria: '#FAE9F5'
       },
       {
-        nome: 'Mobile',
+        nome: 'Site',
         corPrimaria: '#FFBA05',
         corSecundaria: '#FFF5D9'
       },
       {
-        nome: 'Inovação e Gestão',
+        nome: 'Outro',
         corPrimaria: '#FF8A29',
         corSecundaria: '#FFEEDF'
       }
     ]
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [cards, setCards] = useState([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador)
-    setColaboradores([...colaboradores, colaborador])
+  const aoNovoCardAdicionado = (card) => {
+    console.log(card)
+    setCards([...cards, card])
   }
 
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
+      <Formulario assuntos={assuntos.map(assunto => assunto.nome)} aoCardCadastrado={card => aoNovoCardAdicionado(card)} />
       
-      {times.map(time => <Time 
-        key={time.nome} 
-        nome={time.nome} 
-        corPrimaria={time.corPrimaria} 
-        corSecundaria={time.corSecundaria} 
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+      {assuntos.map(assunto => <Assunto 
+        key={assunto.nome} 
+        nome={assunto.nome} 
+        corPrimaria={assunto.corPrimaria} 
+        corSecundaria={assunto.corSecundaria} 
+        cards={cards.filter(card => card.assunto === assunto.nome)}
       />)}
 
       <Rodape />
