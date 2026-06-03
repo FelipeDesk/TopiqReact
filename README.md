@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# TOPIQ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TOPIQ é um projeto em React que ajuda a organizar assuntos favoritos em cards por categoria. A ideia é praticar React de forma funcional, com foco em componentes reutilizáveis, estado e renderização dinâmica.
 
-## Available Scripts
+## 🚀 O que o projeto faz
 
-In the project directory, you can run:
+- Permite cadastrar um novo item com:
+  - categoria (assunto)
+  - nome
+  - descrição ou autor
+  - imagem
+- Exibe os itens automaticamente em cards dentro da categoria correta
+- Mantém a interface limpa e visual
 
-### `npm start`
+## 🎯 Objetivo do projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O projeto foi criado para treinar conceitos fundamentais do desenvolvimento Front-end com React:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Componentização
+- Estado com `useState`
+- Eventos e formulários
+- Passagem de dados via `props`
+- Renderização condicional
+- Renderização de listas
+- Organização de componentes e estrutura de projeto
 
-### `npm test`
+## 🧩 Estrutura do projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `src/App.js` — lógica principal e gerenciamento de estado
+- `src/componentes/Formulario` — formulário de cadastro
+- `src/componentes/Assunto` — exibição de grupos de cards por categoria
+- `src/componentes/Card` — card individual do item
+- `src/componentes/ListaSuspensa` — seleção de assunto/categoria
+- `src/componentes/CampoTexto` — campos de entrada de texto
+- `src/componentes/Rodape` — rodapé da aplicação
 
-### `npm run build`
+## ⚙️ Como rodar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+3. Abra o navegador em:
+   ```
+   http://localhost:3000
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💡 Nota
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Atualmente a imagem é informada como URL no formulário. Para suportar upload direto do arquivo local, é possível adicionar um input `type="file"` e usar uma URL de dados (`data URL`) para exibir a imagem.
