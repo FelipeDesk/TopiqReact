@@ -6,7 +6,9 @@ const Assunto = (props) => {
         (props.cards.length > 0) && <section className='assunto' style={{ backgroundColor: props.corSecundaria }}>
             <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
             <div className='cards'>
-                {props.cards.map( card => <Card key={card.nome} nome={card.nome} descricao={card.descricao} imagem={card.imagem} corPrimaria={props.corPrimaria} />)}
+                {props.cards.map((card, index) => {
+                    return <Card key={index} nome={card.nome} descricao={card.descricao} imagem={card.imagem} corPrimaria={props.corPrimaria} aoDeletar={props.aoDeletar} />
+                })}
             </div>
         </section>
     )

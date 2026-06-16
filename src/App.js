@@ -51,17 +51,22 @@ function App() {
     setCards([...cards, card])
   }
 
+  function deletarCard() {
+    console.log('Deletando card')
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario assuntos={assuntos.map(assunto => assunto.nome)} aoCardCadastrado={card => aoNovoCardAdicionado(card)} />
       
-      {assuntos.map(assunto => <Assunto 
-        key={assunto.nome} 
+      {assuntos.map((assunto, index) => <Assunto 
+        key={index} 
         nome={assunto.nome} 
         corPrimaria={assunto.corPrimaria} 
         corSecundaria={assunto.corSecundaria} 
         cards={cards.filter(card => card.assunto === assunto.nome)}
+        aoDeletar={deletarCard}
       />)}
 
       <Rodape />
