@@ -3,37 +3,45 @@ import Banner from './componentes/Banner/Banner';
 import Formulario from './componentes/Formulario';
 import Assunto from './componentes/Assunto';
 import Rodape from './componentes/Rodape';
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
 
   const [assuntos, setAssuntos] = useState([
       {
+        id: uuidv4(),
         nome: 'Filme',
-        cor: '#D9F7E9'
+        cor: '#0ea800'
       },
       {
+        id: uuidv4(),
         nome: 'Série',
-        cor: '#E8F8FF'
+        cor: '#0057a8'
       },
       {
+        id: uuidv4(),
         nome: 'Música',
-        cor: '#F0F8E2'
+        cor: '#a80000'
       },
       {
+        id: uuidv4(),
         nome: 'Livro',
-        cor: '#FDE7E8'
+        cor: '#7800a8'
       },
       {
+        id: uuidv4(),
         nome: 'Jogo',
-        cor: '#FAE9F5'
+        cor: '#a89700'
       },
       {
+        id: uuidv4(),
         nome: 'Site',
-        cor: '#FFF5D9'
+        cor: '#a80084'
       },
       {
+        id: uuidv4(),
         nome: 'Outro',
-        cor: '#FFEEDF'
+        cor: '#00a884'
       }
     ])
 
@@ -48,9 +56,9 @@ function App() {
     console.log('Deletando card')
   }
 
-  function mudarCorDoAssunto(cor, nome) {
+  function mudarCorDoAssunto(cor, id) {
      setAssuntos(assuntos.map(assunto => {
-      if(assunto.nome === nome) {
+      if(assunto.id === id) {
         assunto.cor = cor
       }
       return assunto
@@ -66,7 +74,7 @@ function App() {
         mudarCor={mudarCorDoAssunto}
         key={index} 
         nome={assunto.nome} 
-        corPrimaria={assunto.corPrimaria} 
+        id={assunto.id}
         cor={assunto.cor} 
         cards={cards.filter(card => card.assunto === assunto.nome)}
         aoDeletar={deletarCard}
