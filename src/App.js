@@ -6,43 +6,36 @@ import Rodape from './componentes/Rodape';
 
 function App() {
 
-  const assuntos = [
+  const [assuntos, setAssuntos] = useState([
       {
         nome: 'Filme',
-        corPrimaria: '#57C278',
-        corSecundaria: '#D9F7E9'
+        cor: '#D9F7E9'
       },
       {
         nome: 'Série',
-        corPrimaria: '#82CFFA',
-        corSecundaria: '#E8F8FF'
+        cor: '#E8F8FF'
       },
       {
         nome: 'Música',
-        corPrimaria: '#A6D157',
-        corSecundaria: '#F0F8E2'
+        cor: '#F0F8E2'
       },
       {
         nome: 'Livro',
-        corPrimaria: '#E06B69',
-        corSecundaria: '#FDE7E8'
+        cor: '#FDE7E8'
       },
       {
         nome: 'Jogo',
-        corPrimaria: '#DB6EBF',
-        corSecundaria: '#FAE9F5'
+        cor: '#FAE9F5'
       },
       {
         nome: 'Site',
-        corPrimaria: '#FFBA05',
-        corSecundaria: '#FFF5D9'
+        cor: '#FFF5D9'
       },
       {
         nome: 'Outro',
-        corPrimaria: '#FF8A29',
-        corSecundaria: '#FFEEDF'
+        cor: '#FFEEDF'
       }
-    ]
+    ])
 
   const [cards, setCards] = useState([])
 
@@ -55,16 +48,26 @@ function App() {
     console.log('Deletando card')
   }
 
+  function mudarCorDoAssunto(cor, nome) {
+     setAssuntos(assuntos.map(assunto => {
+      if(assunto.nome === nome) {
+        assunto.cor = cor
+      }
+      return assunto
+     }))
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario assuntos={assuntos.map(assunto => assunto.nome)} aoCardCadastrado={card => aoNovoCardAdicionado(card)} />
       
       {assuntos.map((assunto, index) => <Assunto 
+        mudarCor={mudarCorDoAssunto}
         key={index} 
         nome={assunto.nome} 
         corPrimaria={assunto.corPrimaria} 
-        corSecundaria={assunto.corSecundaria} 
+        cor={assunto.cor} 
         cards={cards.filter(card => card.assunto === assunto.nome)}
         aoDeletar={deletarCard}
       />)}
