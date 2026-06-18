@@ -1,15 +1,11 @@
 import { IoCloseCircle } from "react-icons/io5"
 import './Card.css'
 
-const Card = ({nome, descricao, imagem, id, corPrimaria, aoDeletar}) => {
+const Card = ({nome, descricao, imagem, id, corDeFundo, aoDeletar}) => {
     return (
         <div className='card'>
-            <IoCloseCircle 
-                size={30} 
-                className='deletar' 
-                onClick={() => aoDeletar(id)} 
-            />
-            <div className='cabecalho' style={{backgroundColor: corPrimaria}}>
+            <IoCloseCircle size={30} className='deletar' onClick={() => aoDeletar(id)} />
+            <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt=''/>
             </div>
             <div className='rodape'>
