@@ -7,7 +7,7 @@ const Assunto = (props) => {
             <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
             <div className='cards'>
                 {props.cards.map((card, index) => {
-                    return <Card key={index} nome={card.nome} descricao={card.descricao} imagem={card.imagem} corPrimaria={props.corPrimaria} aoDeletar={props.aoDeletar} />
+                    return <Card key={index} nome={card.nome} descricao={card.descricao} imagem={card.imagem} id={card.id} corPrimaria={props.corPrimaria} aoDeletar={props.aoDeletar} />
                 })}
             </div>
         </section>

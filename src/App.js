@@ -51,8 +51,8 @@ function App() {
     setCards([...cards, card])
   }
 
-  function deletarCard() {
-    console.log('Deletando card')
+  function deletarCard(id) {
+    setCards(cards.filter(card => card.id !== id))
   }
 
   return (
