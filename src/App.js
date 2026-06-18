@@ -37,18 +37,12 @@ function App() {
         id: uuidv4(),
         nome: 'Site',
         cor: '#a80084'
-      },
-      {
-        id: uuidv4(),
-        nome: 'Outro',
-        cor: '#00a884'
       }
     ])
 
   const [cards, setCards] = useState([])
 
   const aoNovoCardAdicionado = (card) => {
-    console.log(card)
     setCards([...cards, { ...card, id: uuidv4() }])
   }
 
@@ -65,10 +59,18 @@ function App() {
      }))
   }
 
+  function cadastrarAssunto(novoAssunto) {
+    setAssuntos([...assuntos, {...novoAssunto, id: uuidv4()}])
+  }
+
   return (
     <div className="App">
       <Banner />
-      <Formulario assuntos={assuntos.map(assunto => assunto.nome)} aoCardCadastrado={card => aoNovoCardAdicionado(card)} />
+      <Formulario 
+        cadastrarAssunto={cadastrarAssunto}
+        assuntos={assuntos.map(assunto => assunto.nome)} 
+        aoCardCadastrado={card => aoNovoCardAdicionado(card)} 
+      />
       
       {assuntos.map((assunto, index) => <Assunto 
         mudarCor={mudarCorDoAssunto}
