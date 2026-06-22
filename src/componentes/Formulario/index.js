@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import Botao from '../Botao'
-import CampoTexto from '../CampoTexto'
+import Campo from '../Campo'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
@@ -51,9 +51,9 @@ const Formulario = (props) => {
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados do seu melhor assunto</h2>
                 <ListaSuspensa obrigatorio={true} label='Assunto' itens={props.assuntos} valor={assunto} aoAlterado={valor => setAssunto(valor)} />
-                <CampoTexto obrigatorio={true} label='Nome' placeholder='Digite o nome' valor={nome} aoAlterado={valor => setNome(valor)} />
-                <CampoTexto obrigatorio={true} label='Descrição ou Autor' placeholder='Digite uma descrição ou autor' valor={descricao} aoAlterado={valor => setDescricao(valor)} />
-                <div className='campo-texto'>
+                <Campo obrigatorio={true} label='Nome' placeholder='Digite o nome' valor={nome} aoAlterado={valor => setNome(valor)} />
+                <Campo obrigatorio={true} label='Descrição ou Autor' placeholder='Digite uma descrição ou autor' valor={descricao} aoAlterado={valor => setDescricao(valor)} />
+                <div className='campo'>
                     <label>Imagem</label>
                     <input type='file' accept='image/*' ref={imagemInput} onChange={aoSelecionarImagem} />
                 </div>
@@ -64,10 +64,13 @@ const Formulario = (props) => {
             <form onSubmit={(evento) => {
                 evento.preventDefault()
                 props.cadastrarAssunto({ nome: nomeAssunto, cor: corAssunto})
+                setNomeAssunto('')
+                setCorAssunto('')
+                alert('Novo assunto adicionado na lista de assuntos!')
             }}>
                 <h2>Preencha os dados para criar um novo assunto</h2>
-                <CampoTexto obrigatorio label='Nome' placeholder='Digite o nome do assunto' valor={nomeAssunto} aoAlterado={valor => setNomeAssunto(valor)} />
-                <CampoTexto obrigatorio label='Cor' placeholder='Digite a cor do assunto' valor={corAssunto} aoAlterado={valor => setCorAssunto(valor)} />
+                <Campo obrigatorio label='Nome' placeholder='Digite o nome do assunto' valor={nomeAssunto} aoAlterado={valor => setNomeAssunto(valor)} />
+                <Campo obrigatorio type='color' label='Cor' placeholder='Digite a cor do assunto' valor={corAssunto} aoAlterado={valor => setCorAssunto(valor)} />
                 <Botao>
                     Criar um novo time
                 </Botao>
