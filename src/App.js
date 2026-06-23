@@ -3,65 +3,83 @@ import Banner from './componentes/Banner/Banner';
 import Formulario from './componentes/Formulario';
 import Assunto from './componentes/Assunto';
 import Rodape from './componentes/Rodape';
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
 
-  const assuntos = [
+  const [assuntos, setAssuntos] = useState([
       {
+        id: uuidv4(),
         nome: 'Filme',
-        corPrimaria: '#57C278',
-        corSecundaria: '#D9F7E9'
+        cor: '#0ea800'
       },
       {
+        id: uuidv4(),
         nome: 'Série',
-        corPrimaria: '#82CFFA',
-        corSecundaria: '#E8F8FF'
+        cor: '#0057a8'
       },
       {
+        id: uuidv4(),
         nome: 'Música',
-        corPrimaria: '#A6D157',
-        corSecundaria: '#F0F8E2'
+        cor: '#a80000'
       },
       {
+        id: uuidv4(),
         nome: 'Livro',
-        corPrimaria: '#E06B69',
-        corSecundaria: '#FDE7E8'
+        cor: '#7800a8'
       },
       {
+        id: uuidv4(),
         nome: 'Jogo',
-        corPrimaria: '#DB6EBF',
-        corSecundaria: '#FAE9F5'
+        cor: '#a89700'
       },
       {
+        id: uuidv4(),
         nome: 'Site',
-        corPrimaria: '#FFBA05',
-        corSecundaria: '#FFF5D9'
-      },
-      {
-        nome: 'Outro',
-        corPrimaria: '#FF8A29',
-        corSecundaria: '#FFEEDF'
+        cor: '#a80084'
       }
-    ]
+    ])
 
   const [cards, setCards] = useState([])
 
   const aoNovoCardAdicionado = (card) => {
-    console.log(card)
-    setCards([...cards, card])
+    setCards([...cards, { ...card, id: uuidv4() }])
+  }
+
+  function deletarCard(id) {
+    setCards(cards.filter(card => card.id !== id))
+  }
+
+  function mudarCorDoAssunto(cor, id) {
+     setAssuntos(assuntos.map(assunto => {
+      if(assunto.id === id) {
+        assunto.cor = cor
+      }
+      return assunto
+     }))
+  }
+
+  function cadastrarAssunto(novoAssunto) {
+    setAssuntos([...assuntos, {...novoAssunto, id: uuidv4()}])
   }
 
   return (
     <div className="App">
       <Banner />
-      <Formulario assuntos={assuntos.map(assunto => assunto.nome)} aoCardCadastrado={card => aoNovoCardAdicionado(card)} />
+      <Formulario 
+        cadastrarAssunto={cadastrarAssunto}
+        assuntos={assuntos.map(assunto => assunto.nome)} 
+        aoCardCadastrado={card => aoNovoCardAdicionado(card)} 
+      />
       
-      {assuntos.map(assunto => <Assunto 
-        key={assunto.nome} 
+      {assuntos.map((assunto, index) => <Assunto 
+        mudarCor={mudarCorDoAssunto}
+        key={index} 
         nome={assunto.nome} 
-        corPrimaria={assunto.corPrimaria} 
-        corSecundaria={assunto.corSecundaria} 
+        id={assunto.id}
+        cor={assunto.cor} 
         cards={cards.filter(card => card.assunto === assunto.nome)}
+        aoDeletar={deletarCard}
       />)}
 
       <Rodape />
