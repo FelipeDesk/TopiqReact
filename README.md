@@ -9,6 +9,9 @@ TOPIQ é um projeto em React que ajuda a organizar assuntos favoritos em cards p
   - nome
   - descrição ou autor
   - imagem
+- Permite cadastrar um novo assunto:
+  - nome
+  - cor
 - Exibe os itens automaticamente em cards dentro da categoria correta
 - Mantém a interface limpa e visual
 
@@ -27,11 +30,13 @@ O projeto foi criado para treinar conceitos fundamentais do desenvolvimento Fron
 ## 🧩 Estrutura do projeto
 
 - `src/App.js` — lógica principal e gerenciamento de estado
-- `src/componentes/Formulario` — formulário de cadastro
 - `src/componentes/Assunto` — exibição de grupos de cards por categoria
+- `src/componentes/Banner` — banner inicial da aplicação
+- `src/componentes/Botao` — todos os botões utilizados 
+- `src/componentes/Campo` — campos de entrada de texto e cor
 - `src/componentes/Card` — card individual do item
+- `src/componentes/Formulario` — formulário de cadastro
 - `src/componentes/ListaSuspensa` — seleção de assunto/categoria
-- `src/componentes/CampoTexto` — campos de entrada de texto
 - `src/componentes/Rodape` — rodapé da aplicação
 
 ## ⚙️ Como rodar
@@ -48,7 +53,3 @@ O projeto foi criado para treinar conceitos fundamentais do desenvolvimento Fron
    ```
    http://localhost:3000
    ```
-
-## 💡 Nota
-
-Atualmente a imagem é informada como URL no formulário. Para suportar upload direto do arquivo local, é possível adicionar um input `type="file"` e usar uma URL de dados (`data URL`) para exibir a imagem.
